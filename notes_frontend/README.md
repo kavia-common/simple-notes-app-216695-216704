@@ -1,82 +1,41 @@
-# Lightweight React Template for KAVIA
+# Simple Notes — Frontend (React)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+UI for creating, viewing, editing, and deleting notes. It talks to the FastAPI backend over REST.
 
-## Features
+## Prerequisites
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Node.js / npm
+- Backend running (default: `http://localhost:3001`)
 
-## Getting Started
+## Configure API Base URL
 
-In the project directory, you can run:
+The API client (`src/api/notesApi.js`) reads the backend base URL from:
 
-### `npm start`
+- `process.env.REACT_APP_API_BASE` (if set)
+- otherwise defaults to `http://localhost:3001`
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Create a `.env` file (or set env vars in your shell) to override:
 
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```bash
+# .env
+REACT_APP_API_BASE=http://localhost:3001
 ```
 
-### Components
+> Note: Create React App only exposes env vars prefixed with `REACT_APP_`.
+> After changing `.env`, restart `npm start`.
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+## Run
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+```bash
+npm install
+npm start
+```
 
-## Learn More
+Open: http://localhost:3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Backend API Docs (OpenAPI)
 
-### Code Splitting
+When the backend is running, see interactive docs at:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- http://localhost:3001/docs
+- OpenAPI JSON: http://localhost:3001/openapi.json
